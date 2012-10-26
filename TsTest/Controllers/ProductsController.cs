@@ -12,7 +12,7 @@ namespace TsTest.Controllers
 		public ActionResult Index()
 		{
 			return View(Enumerable.Range(1, 20)
-				            .Select(x => new ProductModel(x.ToString(), "product " + x))
+				            .Select(x => new ProductModel(x, "product " + x))
 				            .ToArray());
 		}
 	}

@@ -1,18 +1,26 @@
-var Shapes;
-(function (Shapes) {
-    var Point = (function () {
-        function Point(x, y) {
-            this.x = x;
-            this.y = y;
+var Products;
+(function (Products) {
+    var Product = (function () {
+        function Product(productNumber, name) {
+            this.productNumber = productNumber;
+            this.name = name;
         }
-        Point.prototype.getDist = function () {
-            return Math.sqrt(this.x * this.x + this.y * this.y);
-        };
-        Point.origin = new Point(0, 0);
-        return Point;
+        return Product;
     })();
-    Shapes.Point = Point;    
-})(Shapes || (Shapes = {}));
+    Products.Product = Product;    
+    var ProductListViewModel = (function () {
+        function ProductListViewModel(elementId, products) {
+            this.products = ko.observableArray();
+            for(var i = 0; i < products.length; i++) {
+                this.addProduct(products[i]);
+            }
+            ko.applyBindings(this, document.getElementById(elementId));
+        }
+        ProductListViewModel.prototype.addProduct = function (product) {
+            this.products.push(product);
+        };
+        return ProductListViewModel;
+    })();
+    Products.ProductListViewModel = ProductListViewModel;    
+})(Products || (Products = {}));
 
-var p = new Shapes.Point(3, 444);
-var dist = p.getDist();

@@ -2,4 +2,19 @@
     Layout = "~/Views/Layout.cshtml";
 }
 
-<script type="text/javascript" src="~/Scripts/Products.js"></script>
+@section Scripts
+{
+	<script type="text/javascript" src="~/Scripts/Products.js"></script>
+}
+
+<div id="productList" data-bind="foreach: products">
+	<div>
+		<span data-bind="text: productNumber"></span>: <span data-bind="text: name"></span>
+	</div>
+</div>
+
+<script type="text/javascript">
+    var productModels = @Html.Raw(Json.Encode(Model));
+    var products = $.map(productModels, function(x) { return new Products.Product(x.ProductNumber, x.Name); });
+    var productList = new Products.ProductListViewModel('productList', products);
+</script>

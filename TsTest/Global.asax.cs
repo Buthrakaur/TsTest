@@ -17,7 +17,12 @@ namespace TsTest
 			AreaRegistration.RegisterAllAreas();
 
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-			RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+			RouteTable.Routes.MapRoute(
+				"Default", // Route name
+				"{controller}/{action}/{id}", // URL with parameters
+				new {controller = "Products", action = "Index", id = UrlParameter.Optional} // Parameter defaults
+				);
 		}
 	}
 }

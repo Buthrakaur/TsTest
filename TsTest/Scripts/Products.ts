@@ -1,25 +1,23 @@
-// Interface
-interface IPoint {
-    getDist(): number;
-}
+/// <reference path="libs/knockout-2.2.d.ts" />
 
-// Module
-module Shapes {
+module Products {
 
-    // Class
-    export class Point implements IPoint {
-        // Constructor
-        constructor (public x: number, public y: number) { }
-
-        // Instance member
-        getDist() { return Math.sqrt(this.x * this.x + this.y * this.y); }
-
-        // Static member
-        static origin = new Point(0, 0);
+    export class Product {
+        constructor (public productNumber: number, public name: string) { 
+        }
     }
 
-}
+    export class ProductListViewModel {
+        public products: KnockoutObservableArray = ko.observableArray();
 
-// Local variables
-var p: IPoint = new Shapes.Point(3, 444);
-var dist = p.getDist();
+        constructor (elementId: string, products: Product[]) { 
+            for (var i = 0; i < products.length; i++) this.addProduct(products[i]);
+
+            ko.applyBindings(this, document.getElementById(elementId));
+        }
+
+        addProduct(product: Product) {
+            this.products.push(product);
+        }
+    }
+}

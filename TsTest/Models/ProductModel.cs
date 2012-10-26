@@ -7,10 +7,10 @@ namespace TsTest.Models
 {
 	public class ProductModel
 	{
-		public string ProductNumber { get; private set; }
+		public int ProductNumber { get; private set; }
 		public string Name { get; private set; }
 
-		public ProductModel(string productNumber, string name)
+		public ProductModel(int productNumber, string name)
 		{
 			ProductNumber = productNumber;
 			Name = name;
