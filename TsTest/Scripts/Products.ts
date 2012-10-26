@@ -21,5 +21,5 @@ module Shapes {
 }
 
 // Local variables
-var p: IPoint = new Shapes.Point(3, 4);
+var p: IPoint = new Shapes.Point(3, 444);
 var dist = p.getDist();
