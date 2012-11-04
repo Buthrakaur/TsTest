@@ -1,5 +1,6 @@
-describe("A suite", function () {
-    it("contains spec with an expectation", function () {
-        expect(true).toBe(true);
+describe("Product tests", function () {
+    var p = new Product(1, 'Product 1');
+    it("Product should be initialized", function () {
+        expect(p.productNumber).toBe(1);
     });
 });
