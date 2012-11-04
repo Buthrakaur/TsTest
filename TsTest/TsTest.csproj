@@ -122,8 +122,7 @@
     <TypeScriptCompile Include="Scripts\Products.ts" />
     <Content Include="Scripts\libs\jquery-1.8.2.min.js" />
     <Content Include="Scripts\libs\jquery-1.8.d.ts" />
-    <Content Include="Scripts\libs\knockout-2.2.0rc.debug.js" />
-    <Content Include="Scripts\libs\knockout-2.2.0rc.js" />
+    <Content Include="Scripts\libs\knockout-2.2.0.js" />
     <Content Include="Scripts\libs\knockout-2.2.d.ts" />
     <Content Include="Scripts\Products.js">
       <DependentUpon>Products.ts</DependentUpon>
