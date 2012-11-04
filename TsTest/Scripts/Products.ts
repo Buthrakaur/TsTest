@@ -9,6 +9,7 @@ module Products {
 
     export class ProductListViewModel {
         public products: KnockoutObservableArray = ko.observableArray();
+        public selectedProduct: KnockoutObservableAny = ko.observable();
 
         constructor (elementId: string, products: Product[]) { 
             for (var i = 0; i < products.length; i++) this.addProduct(products[i]);
@@ -18,6 +19,11 @@ module Products {
 
         addProduct(product: Product) {
             this.products.push(product);
+        }
+         
+        selectProduct(product: Product) {
+            //*rozbity this
+            this.selectedProduct(product);
         }
     }
 }

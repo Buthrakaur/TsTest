@@ -11,6 +11,7 @@ var Products;
     var ProductListViewModel = (function () {
         function ProductListViewModel(elementId, products) {
             this.products = ko.observableArray();
+            this.selectedProduct = ko.observable();
             for(var i = 0; i < products.length; i++) {
                 this.addProduct(products[i]);
             }
@@ -18,6 +19,9 @@ var Products;
         }
         ProductListViewModel.prototype.addProduct = function (product) {
             this.products.push(product);
+        };
+        ProductListViewModel.prototype.selectProduct = function (product) {
+            this.selectedProduct(product);
         };
         return ProductListViewModel;
     })();
