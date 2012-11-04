@@ -8,7 +8,7 @@
 }
 
 <div id="productList" data-bind="foreach: products">
-	<div>
+	<div data-bind="click: $parent.selectProduct, style: {color: $parent.selectedProduct == $data ? 'red' : 'black'}">
 		<span data-bind="text: productNumber"></span>: <span data-bind="text: name"></span>
 	</div>
 </div>
