@@ -1,6 +1,6 @@
-///<reference path="../../TsTest/Scripts/Products.ts" />
 ///<reference path="libs/jasmine.d.ts" />
 ///<reference path="../../TsTest/Scripts/libs/knockout-2.2.d.ts" />
+///<reference path="../../TsTest/Scripts/Products.ts" />
 
 describe("Product tests", () => {
     var p = new Products.Product(1, 'Product 1');
