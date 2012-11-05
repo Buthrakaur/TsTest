@@ -1,16 +1,19 @@
 ﻿@{
     Layout = "~/Views/Layout.cshtml";
 }
-
 @section Scripts
 {
-	<script type="text/javascript" src="~/Scripts/Products.js"></script>
+    <script type="text/javascript" src="~/Scripts/Products.js"></script>
 }
 
-<div id="productList" data-bind="foreach: products">
-	<div data-bind="click: $parent.selectProduct, style: {color: $parent.selectedProduct == $data ? 'red' : 'black'}">
-		<span data-bind="text: productNumber"></span>: <span data-bind="text: name"></span>
+<div id="productList">
+	<div data-bind="foreach: products">
+		<div data-bind="click: function(data){ $parent.selectProduct(data, $parent)}, style: {color: $parent.selectedProductNumber == productNumber ? 'red' : 'black'}">
+			<span data-bind="text: productNumber"></span>: <span data-bind="text: name"></span>
+		</div>
 	</div>
+    
+    <div>Selected: <span data-bind="text: selectedProductName"></span></div>
 </div>
 
 <script type="text/javascript">

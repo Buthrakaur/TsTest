@@ -10,11 +10,18 @@ var Products;
     Products.Product = Product;    
     var ProductListViewModel = (function () {
         function ProductListViewModel(elementId, products) {
+            var _this = this;
             this.products = ko.observableArray();
             this.selectedProduct = ko.observable();
             for(var i = 0; i < products.length; i++) {
                 this.addProduct(products[i]);
             }
+            this.selectedProductName = ko.computed(function () {
+                if(!_this.selectedProduct()) {
+                    return null;
+                }
+                return _this.selectedProduct().name;
+            });
             ko.applyBindings(this, document.getElementById(elementId));
         }
         ProductListViewModel.prototype.addProduct = function (product) {
